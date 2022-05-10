@@ -4,16 +4,15 @@ import 'dotenv/config';
 const userJwtSecret = process.env.JWT_SECRET;
 
 export interface JwtUserEncodeData {
-    id: string;
+  id: string;
 }
 
-export const encodeUserToken = (data: JwtUserEncodeData) =>
-    userJwtSecret ? sign(data, userJwtSecret) : sign(data, '??');
+export const encodeUserToken = (data: JwtUserEncodeData) => sign(data, userJwtSecret!);
 
 export const decodeUserToken = (token: string) => {
-    try {
-        return userJwtSecret ? verify(token, userJwtSecret) : verify(token, '??');
-    } catch (e) {
-        return null;
-    }
+  try {
+    return verify(token, userJwtSecret!);
+  } catch (e) {
+    return null;
+  }
 };
