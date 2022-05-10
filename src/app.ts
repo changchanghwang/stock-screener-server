@@ -4,6 +4,9 @@ import * as koaBody from 'koa-body';
 import { dbConnect } from './config/db';
 import { globalRouter } from './routes';
 import { errorHandlerMiddleware, dependencyInjectorMiddleware } from './middlewares/';
+import 'dotenv/config';
+
+const port = process.env.PORT;
 
 (async () => {
   dbConnect();
@@ -12,5 +15,5 @@ import { errorHandlerMiddleware, dependencyInjectorMiddleware } from './middlewa
   app.use(dependencyInjectorMiddleware);
   app.use(koaBody());
   app.use(globalRouter.middleware());
-  app.listen(3000, () => console.log('hello'));
+  app.listen(port, () => console.log('hello'));
 })();
