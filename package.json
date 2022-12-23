@@ -21,7 +21,7 @@
   "dependencies": {
     "@hapi/boom": "^10.0.0",
     "@hapi/joi": "^15.1.1",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "koa": "^2.13.4",
     "koa-body": "^5.0.0",
     "koa-joi-router": "^6.0.0",
